@@ -1,12 +1,30 @@
 import './App.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import bg from './img/bg.jpg';
 import data from './data.js';
 import {Route, Routes, Link, Outlet} from 'react-router-dom';
 import Detail from './routes/Detail.js';
+import Detail1 from './routes/Detail1.js';
+import axios from 'axios';
 
 function App() {
 	let [datas] = useState(data);
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		//방법 1
+		/* axios.get('https://jsonplaceholder.typicode.com/users').then(response => {setPosts(response.data); console.log(response.data);}); */
+		
+		//방법 2
+		axios({
+			method: 'GET',
+			url: 'https://jsonplaceholder.typicode.com/users'
+		}).then(response => {
+			setPosts(response.data);
+			console.log(response.data);
+		});
+	},[]);
+
   return (
     <div className="App">
 
@@ -16,7 +34,7 @@ function App() {
 					<h1 className="logo"><Link to='/'>Blog</Link></h1>
 					<ul className='menu'>
 						<li><Link  to='/'>Home</Link></li>
-						<li><Link  to='/detail'>Detail</Link></li>
+						<li><Link  to='/detail1'>Detail</Link></li>
 						<li><Link  to='/about'>Best</Link></li>
 					</ul>
 				</nav>
@@ -39,8 +57,19 @@ function App() {
 						}
 					</ul>
 				</container>
+				<br />
+				<ul className='user'>
+					{posts.map(post => (
+						<li key={post.id}>
+							<div>{post.name}</div>
+							<div>{post.email}</div>
+							<div>{post.address.city}</div>
+							<div>{post.company.bs}</div>
+						</li>
+					))}
+				</ul>
 			</div>} />
-			<Route path='/detail' element={<Detail />} />
+			<Route path='/detail1' element={<Detail1 />} />
 			<Route path='/detail/:id' element={<Detail datas={datas} />} />
 			<Route path='/about' element={<About />}>
 				<Route path='member' element={<div>멤버십</div>}></Route>

@@ -67,3 +67,54 @@ a {
 	text-decoration: none;
 	color: black;
 }
+.alert {
+	background: #ddd;
+	padding: 10px;
+}
+.user {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.user li {
+	width: 30%;
+	margin: 10px;
+	padding: 20px;
+	box-sizing: border-box;
+	background: #b2d8ff;
+}
+.tabs {
+	display: flex;
+	justify-content: center;
+}
+.tabs .item {
+	width: 200px;
+	padding: 20px 0;
+	text-align: center;
+	background: #06c;
+	color: #fff;
+	margin: 0 5px;
+	border-radius: 20px 0 0 0;
+	cursor: pointer;
+}
+.tabBox {
+	background: #ddd;
+	padding: 20px;
+	box-sizing: border-box;
+	width: 800px;
+	text-align: left;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	height: 300px;
+	margin-bottom: 50px;
+}
+.start {
+	opacity: 0;
+}
+.end {
+	opacity: 1;
+}
+.transition {
+	transition: 1s ease-out;
+}

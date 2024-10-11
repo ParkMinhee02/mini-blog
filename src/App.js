@@ -6,6 +6,8 @@ import {Route, Routes, Link, Outlet} from 'react-router-dom';
 import Detail from './routes/Detail.js';
 import Detail1 from './routes/Detail1.js';
 import axios from 'axios';
+import Cart from './routes/Cart.js';
+import { RiHome4Line } from "react-icons/ri";
 
 function App() {
 	let [datas] = useState(data);
@@ -31,11 +33,12 @@ function App() {
 		<Routes>
 			<Route path='/' element={<div>
 				<nav className='name'>
-					<h1 className="logo"><Link to='/'>Blog</Link></h1>
+					<h1 className="logo"><Link to='/'><RiHome4Line /></Link></h1>
 					<ul className='menu'>
 						<li><Link  to='/'>Home</Link></li>
 						<li><Link  to='/detail1'>Detail</Link></li>
 						<li><Link  to='/about'>Best</Link></li>
+						<li><Link  to='/cart'>Cart</Link></li>
 					</ul>
 				</nav>
 				
@@ -75,6 +78,7 @@ function App() {
 				<Route path='member' element={<div>멤버십</div>}></Route>
 				<Route path='location' element={<About />}></Route>
 			</Route>
+			<Route path='/cart' element={<Cart />} />
 		</Routes>
 
     </div>

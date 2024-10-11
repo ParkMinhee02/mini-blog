@@ -25,6 +25,10 @@ nav {
 nav h1 {
 	padding-left: 50px;
 }
+.logo > a {
+	font-size: 30px;
+	color: #06c;
+}
 nav .menu {
 	list-style: none;
 	display: flex;
@@ -32,6 +36,7 @@ nav .menu {
 }
 nav .menu li {
 	padding: 0 20px;
+	line-height: 40px;
 }
 
 .detailCard {
@@ -51,7 +56,6 @@ p {
 	color: #bbb;
 }
 button {
-	margin-top: 50px;
 	background: #000;
 	color: #fff;
 	padding: 10px 30px;
@@ -117,4 +121,23 @@ a {
 }
 .transition {
 	transition: 1s ease-out;
+}
+.cart {
+	padding: 50px;
+}
+.cart table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 30px;
+}
+.cart table thead {
+
+}
+.cart table th {
+	border: 1px solid #ddd;
+	padding: 5px 10px;
+}
+.cart table td {
+	border: 1px solid #ddd;
+	padding: 5px 10px;
 }
